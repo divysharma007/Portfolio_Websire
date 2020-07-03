@@ -1,16 +1,13 @@
 <!doctype html>
 <html lang="en">
+{% load static %}
 <head>
-  <style>
-    a { color: #FF0000; } /* CSS link color */
-  </style>
-  {% load static %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Jekyll v4.0.1">
-  <title>Rohit Karan</title>
+  <title>{{blog.title}}</title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
 
@@ -58,47 +55,23 @@
         <div class="navbar-nav ml-auto">
           <a class="nav-item nav-link" href="https://www.linkedin.com/in/rohitkaran29/">LinkedIn</a>
           <a class="nav-item nav-link" href="{%static 'Resume.pdf'%}">Resume</a>
-          <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
+          <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blog</a>
         </div>
       </div>
     </nav>
   </header>
 
   <main role="main">
-
-    <section class="jumbotron text-center">
-      <div class="container">
-        <img src="{% static 'PicsArt_11-24-04.11.57.jpg'%}" height=250 width=250/>
-        <br/>
-        <br/>
-        <h1>Hi, I am Rohit Karan</h1>
-        <p class="lead text-muted">I am a Chemical Engineering junior at Indian Institute of Technology, Guwahati.</p>
-        <p>
-          <a href="mailto:rohit18@iitg.ac.in" class="btn btn-primary my-2">Drop an Email</a>
-        </p>
-      </div>
-    </section>
     <div class="container">
-    <h2>Blogs At Glance</h2>
-    </div>
-
-    <div class="album py-5 bg-light">
-      <div class="container">
-
-        <div class="row">
-          {%for job in jobs.all%}
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-              <img class="card-img-top" src="{{job.image.url}}" height="300" width="300"/>
-              <div class="card-body">
-                <strong> <class="card-text">{{job.summary}}</strong>
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-
-        </div>
-      </div>
+    <h1 class="text-center pt-3">{{blog.title}}</h1>
+    <p class="text-center">{{blog.pub_date}}</p>
+    <img class="img-fluid" src="{{blog.image.url}}"/>
+    <br/>
+    <br/>
+    <p>{{blog.body}}</p>
+    <br/>
+    <br/>
+    <br/>
     </div>
 
   </main>
